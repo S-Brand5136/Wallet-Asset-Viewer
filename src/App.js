@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Box } from '@chakra-ui/react';
 import Home from './pages/Home';
 import Wallets from './pages/Wallets';
-import SideMenu from './components/Menus/SideMenu';
+import SideMenu from './components/SideMenu';
 
 function App() {
   return (
