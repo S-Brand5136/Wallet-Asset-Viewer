@@ -1,8 +1,8 @@
 import { Box, Divider, Flex } from '@chakra-ui/react';
-import { ColorModeSwitcher } from '../../theme/ColorModeSwitcher';
+import { ColorModeSwitcher } from '../theme/ColorModeSwitcher';
 import { IoIosWallet, IoMdHome } from 'react-icons/io';
 import { useNavigate, useLocation } from 'react-router-dom';
-import MenuButton from '../Buttons/MenuButton';
+import MenuButton from './MenuButton';
 
 const SideMenu = props => {
   const navigate = useNavigate();
