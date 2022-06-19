@@ -18,7 +18,7 @@ const walletReducer = (state, action) => {
         return wallet.id === action.payload.id ? action.payload : wallet;
       });
     case 'delete_wallet':
-      return state.filter(entry => entry.walletId !== action.payload);
+      return state.filter(wallet => wallet.walletId !== action.payload);
     default:
       return state;
   }
@@ -41,18 +41,20 @@ const addWallet = dispatch => {
 };
 
 const deleteWallet = dispatch => {
-  return async id => {
+  return async (id, callBack) => {
     await jsonServer.delete(`/wallets/${id}`);
 
-    dispatch({ type: 'delete_wallet', payload: id });
+    // dispatch({ type: 'delete_wallet', payload: id });
+    callBack();
   };
 };
 
 const editWallet = dispatch => {
-  return async (id, walletId, name) => {
+  return async (id, walletId, name, callBack) => {
     await jsonServer.put(`/wallets/${id}`, { walletId, name });
 
     dispatch({ type: 'edit_blogpost', payload: { id, walletId, name } });
+    callBack();
   };
 };
 
