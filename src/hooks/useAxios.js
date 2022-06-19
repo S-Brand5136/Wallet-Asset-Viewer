@@ -1,27 +1,20 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://api-staging.rarible.org/v0.1/items/byOwner';
-
-export const useAxios = axiosParams => {
-  const [response, setResponse] = useState(undefined);
-  const [error, setError] = useState('');
+export const useAxios = () => {
   const [loading, setLoading] = useState(true);
 
   const fetchData = async params => {
+    setLoading(true);
     try {
       const result = await axios.request(params);
-      setResponse(result.data);
+      return result.data;
     } catch (error) {
-      setError(error);
+      return error;
     } finally {
       setLoading(false);
     }
   };
 
-  useEffect(() => {
-    fetchData(axiosParams);
-  }, []); // execute once only
-
-  return { response, error, loading };
+  return { fetchData, loading };
 };
