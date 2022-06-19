@@ -59,10 +59,5 @@ const editWallet = dispatch => {
 export const { Context, Provider } = createDataContext(
   walletReducer,
   { addWallet, deleteWallet, getWallets, editWallet },
-  [
-    {
-      walletId: '0x3beb173F2953476b9Bd303E1AAAd410590380FbC',
-      name: 'Wallet 1',
-    },
-  ]
+  []
 );
