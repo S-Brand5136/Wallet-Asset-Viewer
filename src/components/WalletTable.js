@@ -33,7 +33,7 @@ const WalletTable = props => {
                 openEdit={() => props.edit(wallet)}
                 openDelete={() => props.delete(wallet)}
                 key={index}
-                walletId={wallet.walletId}
+                wallet_address={wallet.wallet_address}
                 name={wallet.name}
               />
             );

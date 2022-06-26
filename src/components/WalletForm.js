@@ -12,14 +12,14 @@ import {
 import { Context } from '../context/WalletContext';
 
 const WalletForm = () => {
-  const [walletId, setWalletId] = useState('');
+  const [wallet_address, setWallet_Address] = useState('');
   const [walletName, setWalletName] = useState('');
   const { addWallet, state } = useContext(Context);
 
   const viewContentsHandler = () => {};
 
   const addToWalletsHandler = async () => {
-    await addWallet(walletId, walletName);
+    await addWallet(wallet_address, walletName);
   };
 
   useEffect(() => {
@@ -41,8 +41,8 @@ const WalletForm = () => {
           <InputGroup width="50%">
             <Input
               placeholder="wallet ID"
-              value={walletId}
-              onChange={event => setWalletId(event.target.value)}
+              value={wallet_address}
+              onChange={event => setWallet_Address(event.target.value)}
             />
           </InputGroup>
 

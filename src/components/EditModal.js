@@ -17,13 +17,13 @@ import { Context } from '../context/WalletContext';
 const EditModal = ({ isOpen, onClose, wallet }) => {
   const { editWallet, getWallets } = useContext(Context);
   const [walletName, setWalletName] = useState('');
-  const [walletId, setWalletId] = useState('');
+  const [wallet_address, setWallet_Address] = useState('');
 
   const editHandler = () => {
-    setWalletId('');
+    setWallet_Address('');
     setWalletName('');
     onClose();
-    editWallet(wallet.id, walletId, walletName, () => getWallets());
+    editWallet(wallet.id, wallet_address, walletName, () => getWallets());
   };
 
   return (
@@ -44,9 +44,9 @@ const EditModal = ({ isOpen, onClose, wallet }) => {
           <InputGroup display={'flex'} flexDirection="column">
             <Text>Wallet ID</Text>
             <Input
-              placeholder={wallet.walletId}
-              value={walletId}
-              onChange={e => setWalletId(e.target.value)}
+              placeholder={wallet.wallet_address}
+              value={wallet_address}
+              onChange={e => setWallet_Address(e.target.value)}
             />
           </InputGroup>
         </ModalBody>

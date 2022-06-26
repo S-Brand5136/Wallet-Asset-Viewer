@@ -1,11 +1,11 @@
 import { Button, Td, Tr } from '@chakra-ui/react';
 import { MdEdit, MdDelete, MdDone } from 'react-icons/md';
 
-const WalletRow = ({ walletId, name, openEdit, openDelete }) => {
+const WalletRow = ({ wallet_address, name, openEdit, openDelete }) => {
   return (
     <Tr>
       <Td>{name}</Td>
-      <Td>{walletId}</Td>
+      <Td>{wallet_address}</Td>
       <Td>
         <MdDone color="blue" />
       </Td>

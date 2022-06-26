@@ -9,7 +9,7 @@ const walletReducer = (state, action) => {
       return [
         ...state,
         {
-          walletId: action.payload.id,
+          wallet_address: action.payload.id,
           name: action.payload.name,
         },
       ];
@@ -18,7 +18,7 @@ const walletReducer = (state, action) => {
         return wallet.id === action.payload.id ? action.payload : wallet;
       });
     case 'delete_wallet':
-      return state.filter(wallet => wallet.walletId !== action.payload);
+      return state.filter(wallet => wallet.wallet_address !== action.payload);
     default:
       return state;
   }
@@ -33,10 +33,13 @@ const getWallets = dispatch => {
 };
 
 const addWallet = dispatch => {
-  return async (walletId, name) => {
-    await jsonServer.post('/wallets', { walletId, name });
+  return async (wallet_address, name) => {
+    await jsonServer.post('/wallets', { wallet_address, name });
 
-    dispatch({ type: 'add_wallet', payload: { id: walletId, name } });
+    dispatch({
+      type: 'add_wallet',
+      payload: { wallet_address, name },
+    });
   };
 };
 
@@ -50,10 +53,13 @@ const deleteWallet = dispatch => {
 };
 
 const editWallet = dispatch => {
-  return async (id, walletId, name, callBack) => {
-    await jsonServer.put(`/wallets/${id}`, { walletId, name });
+  return async (id, wallet_address, name, callBack) => {
+    await jsonServer.put(`/wallets/${id}`, { wallet_address, name });
 
-    dispatch({ type: 'edit_blogpost', payload: { id, walletId, name } });
+    dispatch({
+      type: 'edit_blogpost',
+      payload: { id, wallet_address, name },
+    });
     callBack();
   };
 };
