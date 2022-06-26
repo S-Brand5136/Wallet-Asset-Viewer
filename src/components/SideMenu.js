@@ -1,10 +1,13 @@
-import { Box, Divider, Flex } from '@chakra-ui/react';
+import { Box, Divider, Flex, useColorMode } from '@chakra-ui/react';
 import { ColorModeSwitcher } from '../theme/ColorModeSwitcher';
 import { IoIosWallet, IoMdHome } from 'react-icons/io';
 import { useNavigate, useLocation } from 'react-router-dom';
 import MenuButton from './MenuButton';
 
 const SideMenu = props => {
+  // eslint-disable-next-line no-unused-vars
+  const { colorMode, toggleColorMode } = useColorMode();
+
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
@@ -14,7 +17,7 @@ const SideMenu = props => {
 
   return (
     <Flex
-      background={'gray.700'}
+      background={colorMode === 'dark' ? 'gray.700' : 'gray.100'}
       width={'4.2rem'}
       height={'100vh'}
       position={'absolute'}
