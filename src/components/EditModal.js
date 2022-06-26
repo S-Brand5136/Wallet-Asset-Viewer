@@ -10,6 +10,7 @@ import {
   InputGroup,
   Text,
   Input,
+  Switch,
 } from '@chakra-ui/react';
 import { useContext, useState } from 'react';
 import { Context } from '../context/WalletContext';
@@ -18,12 +19,13 @@ const EditModal = ({ isOpen, onClose, wallet }) => {
   const { editWallet, getWallets } = useContext(Context);
   const [walletName, setWalletName] = useState('');
   const [wallet_address, setWallet_Address] = useState('');
+  const [walletSelected, setWalletSelected] = useState(wallet.selected);
 
   const editHandler = () => {
     setWallet_Address('');
     setWalletName('');
     onClose();
-    editWallet(wallet.id, wallet_address, walletName, () => getWallets());
+    editWallet(wallet.id, wallet_address, walletName, walletSelected);
   };
 
   return (
@@ -42,11 +44,18 @@ const EditModal = ({ isOpen, onClose, wallet }) => {
             />
           </InputGroup>
           <InputGroup display={'flex'} flexDirection="column">
-            <Text>Wallet ID</Text>
+            <Text>Wallet Address</Text>
             <Input
               placeholder={wallet.wallet_address}
               value={wallet_address}
               onChange={e => setWallet_Address(e.target.value)}
+            />
+          </InputGroup>
+          <InputGroup mt={5} display={'flex'} flexDirection="column">
+            <Text>Selected</Text>
+            <Switch
+              defaultChecked={wallet.selected}
+              onChange={e => setWalletSelected(!walletSelected)}
             />
           </InputGroup>
         </ModalBody>
