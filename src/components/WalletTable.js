@@ -20,7 +20,7 @@ const WalletTable = props => {
         <Thead>
           <Tr>
             <Th>Name</Th>
-            <Th>Wallet ID</Th>
+            <Th>Wallet Address</Th>
             <Th>Active</Th>
             <Th>Edit</Th>
             <Th>Delete</Th>
@@ -35,6 +35,8 @@ const WalletTable = props => {
                 key={index}
                 wallet_address={wallet.wallet_address}
                 name={wallet.name}
+                selected={wallet.selected}
+                walletId={wallet.id}
               />
             );
           })}
@@ -42,7 +44,7 @@ const WalletTable = props => {
         <Tfoot>
           <Tr>
             <Th>Name</Th>
-            <Th>Wallet ID</Th>
+            <Th>Wallet Address</Th>
             <Th>Active</Th>
             <Th>Edit</Th>
             <Th>Delete</Th>
