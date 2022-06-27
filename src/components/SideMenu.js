@@ -23,6 +23,7 @@ const SideMenu = props => {
       position={'absolute'}
       left={'0'}
       top={'0'}
+      zIndex={1}
       flexDirection={'column'}
       alignItems={'center'}
     >
