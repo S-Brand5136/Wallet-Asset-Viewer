@@ -19,8 +19,8 @@ const SideMenu = props => {
     <Flex
       background={colorMode === 'dark' ? 'gray.700' : 'gray.100'}
       width={'4.2rem'}
-      height={'100vh'}
-      position={'absolute'}
+      height={'100%'}
+      position={'fixed'}
       left={'0'}
       top={'0'}
       zIndex={1}
