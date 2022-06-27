@@ -1,0 +1,10 @@
+{
+  "wallets": [
+    {
+      "wallet_address": "0x3beb173F2953476b9Bd303E1AAAd410590380FbC",
+      "name": "My Wallet",
+      "selected": true,
+      "id": 1
+    }
+  ]
+}
